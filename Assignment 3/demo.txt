@@ -1,0 +1,174 @@
+-------------------- Loading schema and data: --------------------
+
+psql:schema.ddl:72: NOTICE:  drop cascades to 25 other objects
+DETAIL:  drop cascades to type submissiontype
+drop cascades to type sessiontype
+drop cascades to table organization
+drop cascades to table person
+drop cascades to table conference
+drop cascades to table conferenceprice
+drop cascades to table organizer
+drop cascades to table conferencechair
+drop cascades to table registration
+drop cascades to table papersession
+drop cascades to table postersession
+drop cascades to table submissionitem
+drop cascades to table submission
+drop cascades to table submissionauthor
+drop cascades to table submissionreview
+drop cascades to table submissiondecision
+drop cascades to table papersessionpresentation
+drop cascades to table postersessionpresentation
+drop cascades to table workshop
+drop cascades to table workshopprice
+drop cascades to table workshopregistration
+drop cascades to table workshopfacilitator
+drop cascades to view papercount
+drop cascades to view bestconferences
+drop cascades to view firstauthors
+DROP SCHEMA
+CREATE SCHEMA
+SET
+CREATE DOMAIN
+CREATE DOMAIN
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 10
+INSERT 0 10
+INSERT 0 23
+INSERT 0 46
+INSERT 0 23
+INSERT 0 23
+INSERT 0 67
+INSERT 0 14
+INSERT 0 3
+INSERT 0 41
+INSERT 0 82
+INSERT 0 48
+INSERT 0 96
+INSERT 0 40
+INSERT 0 18
+INSERT 0 3
+INSERT 0 2
+INSERT 0 4
+INSERT 0 2
+INSERT 0 2
+
+-------------------- Query 1: -----------------------------------
+
+ conference_name | conference_year | total_submissions | accepted_submissions |  acceptance_percentage  
+-----------------+-----------------+-------------------+----------------------+-------------------------
+ CompEd          |            2019 |                 3 |                    1 | 33.33333333333333333300
+ CompEd          |            2021 |                 3 |                    1 | 33.33333333333333333300
+ CompEd          |            2023 |                 3 |                    1 | 33.33333333333333333300
+ ICLR            |            2024 |                 1 |                    0 |  0.00000000000000000000
+ ICML            |            2024 |                 1 |                    0 |  0.00000000000000000000
+ NeurIPs         |            2024 |                 1 |                    0 |  0.00000000000000000000
+ SIGCSE TS       |            2010 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2011 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2012 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2013 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2014 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2015 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2016 |                12 |                    4 | 33.33333333333333333300
+ SIGCSE TS       |            2017 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2018 |                 6 |                    2 | 33.33333333333333333300
+ SIGCSE TS       |            2019 |                 9 |                    3 | 33.33333333333333333300
+ SIGCSE TS       |            2020 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2021 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2022 |                 9 |                    3 | 33.33333333333333333300
+ SIGCSE TS       |            2023 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2024 |                 3 |                    1 | 33.33333333333333333300
+ SIGCSE TS       |            2025 |                 1 |                    0 |  0.00000000000000000000
+(22 rows)
+
+
+-------------------- Query 2: -----------------------------------
+
+ person_id |       name        | num_conferences_attended 
+-----------+-------------------+--------------------------
+         1 | Michelle Craig    |                       20
+         2 | Jennifer Campbell |                        9
+         3 | Sadia Sharmin     |                        4
+         4 | Jonathan Calver   |                       13
+         5 | Larry Yueli Zhang |                        0
+         6 | Diane Horton      |                        0
+         7 | Daniel Zingaro    |                        0
+         8 | Danny Heap        |                        0
+         9 | Keener            |                        1
+        10 | q1guy             |                       20
+(10 rows)
+
+
+-------------------- Query 3: -----------------------------------
+
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+ conference_id | itemid | author_id |      name      |        email         | organization_id | status  
+---------------+--------+-----------+----------------+----------------------+-----------------+---------
+             7 |      1 |         1 | Michelle Craig | michelle@example.com |               1 | regular
+             7 |      8 |         1 | Michelle Craig | michelle@example.com |               1 | regular
+             7 |     31 |        10 | q1guy          | q1guy@ex.com         |              10 | student
+             7 |     32 |        10 | q1guy          | q1guy@ex.com         |              10 | student
+(4 rows)
+
+
+-------------------- Query 4: -----------------------------------
+
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+ itemid |                      title                      | subtype 
+--------+-------------------------------------------------+---------
+      1 | Introducing and Evaluating Exam Wrappers in CS2 | paper
+(1 row)
+
+-------------------- Query 5: -----------------------------------
+
+CREATE VIEW
+CREATE VIEW
+ conference_id | conference_name |         location         | start_date |  end_date  | avg_papers_perpapersession | avg_posters_perpostersession 
+---------------+-----------------+--------------------------+------------+------------+----------------------------+------------------------------
+             1 | SIGCSE TS       | Milwaukee, Wisconsin     | 2010-01-01 | 2010-01-03 |                          1 |                            0
+             2 | SIGCSE TS       | Dallas, Texas            | 2011-01-01 | 2011-01-03 |                          1 |                            0
+             3 | SIGCSE TS       | Raleigh, NC              | 2012-01-01 | 2012-01-03 |                          1 |                            0
+             4 | SIGCSE TS       | Denver, ColoradoC        | 2013-01-01 | 2013-01-03 |                          1 |                            0
+             5 | SIGCSE TS       | Atlanta, Georgia         | 2014-01-01 | 2014-01-03 |                          1 |                            0
+             6 | SIGCSE TS       | Kansas City, Missouri    | 2015-01-01 | 2015-01-03 |                          1 |                            0
+             7 | SIGCSE TS       | Memphis, Tennessee       | 2016-01-01 | 2016-01-03 |                          2 |                            0
+             8 | SIGCSE TS       | Seattle, Washington      | 2017-01-01 | 2017-01-03 |                          1 |                            0
+             9 | SIGCSE TS       | Baltimore, Maryland      | 2018-01-01 | 2018-01-03 |                          1 |                            1
+            10 | SIGCSE TS       | Minneapolis, Minnesota   | 2019-01-01 | 2019-01-03 |                          2 |                            1
+            11 | SIGCSE TS       | Portland, Oregon         | 2020-01-01 | 2020-01-03 |                          1 |                            0
+            12 | SIGCSE TS       | Seattle, Washington      | 2021-01-01 | 2021-01-03 |                          1 |                            0
+            13 | SIGCSE TS       | Toronto, Canada          | 2022-01-01 | 2022-01-03 |                          3 |                            0
+            14 | SIGCSE TS       | Providence, Rhode Island | 2023-01-01 | 2023-01-03 |                          1 |                            0
+            15 | SIGCSE TS       | Toronto, Canada          | 2024-01-01 | 2024-01-03 |                          0 |                            0
+            16 | SIGCSE TS       | Gaza, Palestine          | 2025-01-01 | 2025-01-03 |                          0 |                            0
+            17 | CompEd          | Aleppo, Syria            | 2019-02-01 | 2019-02-03 |                          0 |                            1
+            18 | CompEd          | Baghdad, Iraq            | 2021-02-01 | 2021-02-03 |                          0 |                            0
+            19 | CompEd          | Kabul, Afghanistan       | 2023-02-01 | 2023-02-03 |                          0 |                            0
+            20 | CompEd          | Toronto, Canada          | 2025-02-01 | 2025-02-03 |                          0 |                            0
+            21 | ICML            | Celaya, Mexico           | 2024-03-01 | 2024-03-03 |                          0 |                            0
+            22 | ICLR            | Tijuana, Mexico          | 2024-04-01 | 2024-04-03 |                          0 |                            0
+            23 | NeurIPs         | Uruapan, Mexico          | 2024-05-01 | 2024-05-03 |                          0 |                            0
+(23 rows)
